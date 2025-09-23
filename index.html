@@ -384,8 +384,6 @@
             </article>
 
 <article class="blog" data-page="blog">
-<article class="projects" data-page="projects">
-<article class="blog" data-page="blog">
     <header>
         <h2 class="h2 article-title">Front-End Insights</h2>
     </header>
@@ -463,6 +461,33 @@ document.querySelector('.form').addEventListener('submit', function(e) {
         } else {
             document.getElementById('form-error').style.display = 'block';
         }
+    });
+});
+
+// Navigation functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('[data-nav-link]');
+    const pages = document.querySelectorAll('[data-page]');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const targetPage = this.textContent.toLowerCase();
+            
+            // Remove active class from all nav links
+            navLinks.forEach(nav => nav.classList.remove('active'));
+            
+            // Remove active class from all pages
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Add active class to clicked nav link
+            this.classList.add('active');
+            
+            // Add active class to corresponding page
+            const targetPageElement = document.querySelector(`[data-page="${targetPage}"]`);
+            if (targetPageElement) {
+                targetPageElement.classList.add('active');
+            }
+        });
     });
 });
 </script>
