@@ -95,7 +95,7 @@
                 <ul class="navbar-list">
                     <li class="navbar-item"><button class="navbar-link active" data-nav-link>About</button></li>
                     <li class="navbar-item"><button class="navbar-link" data-nav-link>Resume</button></li>
-                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Blog</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Projects</button></li>
                     <li class="navbar-item"><button class="navbar-link" data-nav-link>Bibliography</button></li>
                     <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li>
                 </ul>
@@ -383,13 +383,50 @@
                 </section>
             </article>
 
-<article class="blog" data-page="blog">
+<article class="projects" data-page="projects">
     <header>
-        <h2 class="h2 article-title">Front-End Insights</h2>
+        <h2 class="h2 article-title">Projects</h2>
     </header>
-    <section class="blog-posts" style="display: flex; justify-content: center; align-items: center; min-height: 200px;">
-        <div style="background: #ffe066; color: #222; padding: 2rem 3rem; border-radius: 1rem; font-size: 1.5rem; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-            Page is being worked on. Check back soon!
+    
+    <section class="projects-grid">
+        
+
+        <div class="project-card">
+            <div class="project-image">
+                <img src="pythonix.png" alt="Project 2" loading="lazy">
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">🐍 Pythonix</h3>
+                <p class="project-description">Pythonix is a modern browser-based Snake game featuring emoji customization, color themes, and a stylish, responsive interface. Play with keyboard or touch controls and personalize your experience with unique visuals.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://pythonix.vercel.app/" class="project-link">🚀 Live Demo</a>
+                    <a href="https://github.com/Tac0L0rrd/pythonix/tree/main" class="project-link">📱 GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+                <img src="https://via.placeholder.com/300x200/2c5aa0/fff?text=EduBridge" alt="EduBridge School Management System" loading="lazy">
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">🏫 EduBridge School Management System</h3>
+                <p class="project-description">Full-stack Flask application with role-based authentication, grade management, and attendance tracking for comprehensive school administration.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">SQLite</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://edubridge-pi.vercel.app/login" class="project-link">🚀 Live Demo</a>
+                    <a href="https://github.com/Tac0L0rrd/codespaces-flask" class="project-link">📱 Source Code/Guide</a>
+                </div>
+            </div>
         </div>
     </section>
 </article>
@@ -491,6 +528,126 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+<style>
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: var(--bg-gradient-jet, #2a2a2a);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image img {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    transform: perspective(1000px) rotateX(3deg) rotateY(-3deg);
+    transform-style: preserve-3d;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 0.5rem;
+}
+
+.project-card:hover .project-image img {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.02);
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--white, #fff);
+    margin-bottom: 0.75rem;
+}
+
+.project-description {
+    color: var(--light-gray-70, #ccc);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.tech-tag {
+    background: #3b82f6;
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #60a5fa;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .project-content {
+        padding: 1rem;
+    }
+    
+    .project-image {
+        height: 220px;
+    }
+    
+    .project-image img {
+        transform: perspective(800px) rotateX(2deg) rotateY(-2deg);
+        max-width: 98%;
+        max-height: 98%;
+    }
+}
+</style>
 </body>
 
 </html>
