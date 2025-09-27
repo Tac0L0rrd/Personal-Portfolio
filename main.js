@@ -144,3 +144,38 @@ function changeState() {
     document.querySelector('.button').classList.toggle('active')
     document.querySelector('.slider').classList.toggle('active')
 }
+
+// Function to navigate to contact page from CTA button
+function navigateToContact() {
+    // Find all navigation links and pages
+    const navigationLinks = document.querySelectorAll('[data-nav-link]');
+    const pages = document.querySelectorAll('[data-page]');
+    
+    // Find the contact navigation link
+    let contactNavIndex = -1;
+    for(let i = 0; i < navigationLinks.length; i++) {
+        if(navigationLinks[i].innerHTML.toLowerCase() === 'contact') {
+            contactNavIndex = i;
+            break;
+        }
+    }
+    
+    if(contactNavIndex !== -1) {
+        // Remove active class from all pages and nav links
+        for(let i = 0; i < pages.length; i++) {
+            pages[i].classList.remove('active');
+            navigationLinks[i].classList.remove('active');
+        }
+        
+        // Add active class to contact page and nav link
+        pages.forEach(page => {
+            if(page.dataset.page === 'contact') {
+                page.classList.add('active');
+            }
+        });
+        navigationLinks[contactNavIndex].classList.add('active');
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
+    }
+}
